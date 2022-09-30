@@ -70,7 +70,7 @@ def executeAttack(packet):
 
   # this here is a check if the sniffed packets from the victim contain a DNS query request, specifically set to
   # see if "www.example.com" is the questioned domain, so that the attacket can execute the attack
-  if (DNS in pkt and 'www.example.com' in pkt[DNS].qd.qname.decode('utf-8')):
+  if (DNS in packet and 'www.example.com' in packet[DNS].qd.qname.decode('utf-8')):
     # a visual of the packet structure (IP UDP and DNS)
     packet.show()
 
