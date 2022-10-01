@@ -5,12 +5,12 @@ Hello Guys , this is the assignment repo.
 
 The first stage is to setup a baseline attack :
 
-Stage 1:
+Pre-Stage:
 
 *Create a test environment to test the codes (done using a virtual machines and spawning a local docker network to test on)
 *Familiarization with DNS, local DNS spoofing attack, and its countermeasures.
 
-Stage 2: 
+Stage 1: 
 
 @Attackers:
 
@@ -21,9 +21,10 @@ Thus the Local DNS reply will be discarded. (Successful)
 
 Detect Local DNS spoofing targeting the user packet by looking for multiple replies with different answers on the same query. 
 
-Stage 3:
+Stage 2:
 
 @Attackers: 
-
+Evade detectv1 using a stream of carefully spoofed DNS queries packet to bypass the user detection technique.
 
 @Detectors:
+Detect attackv2 using resource<->ip dictionary indexing (stream analysis)
