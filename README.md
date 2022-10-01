@@ -7,8 +7,8 @@ The first stage is to setup a baseline attack :
 
 Pre-Stage:
 
-*Create a test environment to test the codes (done using a virtual machines and spawning a local docker network to test on)
-\n*Familiarization with DNS, local DNS spoofing attack, and its countermeasures.
+*Create a test environment to test the codes (done using a virtual machines and spawning a local docker network to test on)   
+*Familiarization with DNS, local DNS spoofing attack, and its countermeasures.
 
 Stage 1: 
 
