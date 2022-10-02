@@ -31,14 +31,14 @@ Detect attackv2 using resource<->ip dictionary indexing (stream analysis)
 
 Group 3 
 
-Project Manager:
-Mustafa, Ali M. 
-
-Detectors:
-El Alam, Ryan I.
-Al Ladiki, Abdel Rahman Z. 
- 
-Attackers:
-Hijjawi, Ali J. 
-Misto, Issam I.
+Project Manager:  
+Mustafa, Ali M.    
+  
+Detectors:  
+El Alam, Ryan I.  
+Al Ladiki, Abdel Rahman Z.     
+   
+Attackers:  
+Hijjawi, Ali J.   
+Misto, Issam I.  
 
