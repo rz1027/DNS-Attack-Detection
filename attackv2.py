@@ -56,6 +56,8 @@ def executeAvoidanceAttack():
 
         # here, the fake domain should not be the same as of the main attackv1.py, since if they were, then the attack's machine
         # will sniff these packets as if they are DNS queries sent by the victim
+
+        # BUG UPDATE:
         # this part had the source and destination the same, but since the attack sniffs for DNS packets from the victim,
         # then having their IP as source would mean that the attacker will sniff their own packets, and then send false
         # DNS answers to the victim, which is not what we wanted. Thats why we set the source to any random IP
