@@ -35,7 +35,7 @@ def create_DNS_Packet(qname):
     return DNSpacket
 
 # Create the full request
-def create_request():
+def create_request(IP_src_dst, qname):
 
-    request = create_IP_Packet/create_UDP_Packet/create_DNS_Packet
+    request = create_IP_Packet(IP_src_dst)/create_UDP_Packet()/create_DNS_Packet(qname)
     return request
