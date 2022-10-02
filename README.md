@@ -28,3 +28,17 @@ Evade detectv1 using a stream of carefully spoofed DNS queries packet to bypass 
 
 @Detectors:
 Detect attackv2 using resource<->ip dictionary indexing (stream analysis)
+
+Group 3 
+
+Project Manager:
+Mustafa, Ali M. 
+
+Detectors:
+El Alam, Ryan I.
+Al Ladiki, Abdel Rahman Z. 
+ 
+Attackers:
+Hijjawi, Ali J. 
+Misto, Issam I.
+
