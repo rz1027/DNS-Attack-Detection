@@ -27,10 +27,11 @@ Stage 2:
 Evade detectv1 using a stream of carefully spoofed DNS queries packet to bypass the user detection technique.
 
 @Detectors:
-Detect attackv2 using resource<->ip dictionary indexing (stream analysis)
-
-Group 3 
-
+Detect attackv2 using resource<->ip dictionary indexing (stream analysis)  
+  
+  
+***Group 3
+  
 Project Manager:  
 Mustafa, Ali M.    
   
