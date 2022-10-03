@@ -29,10 +29,11 @@ Evade detectv1 using a stream of carefully spoofed DNS queries packet to bypass 
 @Detectors:
 Detect attackv2 using resource<->ip dictionary indexing (stream analysis)  
   
-Stage 3:
-@Attacker:
-Target the Local DNS cache, comlicating things to the detectors.
-
+Stage 3:  
+  
+@Attacker:  
+Target the Local DNS cache, comlicating things to the detectors.  
+  
 
 ***Group 3***
   
