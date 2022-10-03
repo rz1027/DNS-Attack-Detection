@@ -54,11 +54,11 @@ def executeAvoidanceAttack():
     # from the attacker and the real DNS answer from the DNS server
     for i in range(800):
 
-        # here, the fake domain should not be the same as of the main attackv1.py, since if they were, then the attack's machine
+        # here, the fake domain should not be the same as that of the main attackv1.py, since if they were, then the attack's machine
         # will sniff these packets as if they are DNS queries sent by the victim
 
         # BUG UPDATE:
-        # this part had the source and destination the same, but since the attack sniffs for DNS packets from the victim,
+        # this part had the source and destination set as the same, but since the attack sniffs for DNS packets from the victim,
         # then having their IP as source would mean that the attacker will sniff their own packets, and then send false
         # DNS answers to the victim, which is not what we wanted. Thats why we set the source to any random IP
         randomTarget = '9.9.9.9'
@@ -67,9 +67,9 @@ def executeAvoidanceAttack():
 
         # we start the flooding of the victim with DNS queries so that the detection awaits an answer.
         # we reply to the main DNS query with the fake domain, and then the algorithm only sees one answer,
-        # and then a query so it detects again for different answers, in whic the DNS real answer comes back
+        # and then a query so it detects again for different answers, in which the DNS real answer comes back
         # and the detection considers it a valid answer. No same query had two answers.
-        # notice is issam's functions, how the source is set as the victim so that the detection sniffs those
+        # notice in issam's functions, how the source is set as the victim so that the detection sniffs those
         # packets and awaits an answer
         forgedDNSQueryPacket = create_request(randomTarget, victim, fakeDomain)
         send(forgedDNSQueryPacket)
