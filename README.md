@@ -33,19 +33,4 @@ Detect attackv2 using resource<->ip dictionary indexing (stream analysis)
 Stage 3:  
   
 @Attacker:  
-Target the Local DNS cache, comlicating things to the detectors.  
-  
-
-***Group 3***
-  
-Project Manager:  
-Mustafa, Ali M.    
-  
-Detectors:  
-El Alam, Ryan I.  
-Al Ladiki, Abdel Rahman Z.     
-   
-Attackers:  
-Hijjawi, Ali J.   
-Misto, Issam I.  
-
+Target the Local DNS cache, complicating things to the detectors.  
