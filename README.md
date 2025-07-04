@@ -2,7 +2,7 @@
 Attack Defense Scripts for Local DNS Spoofing Attack
 #Based on Seed Security Labs - Local DNS Attacks
 
-Hello Guys , this is the assignment repo.
+I was assigned as a grad student to lead a group project and demonstrate and attack defense strategy for DNS Spoonging 
 
 The first stage is to setup a baseline attack :
 
